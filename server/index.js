@@ -17,6 +17,11 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => console.log('MongoDB connection error:', err));
 
+// Root Route for Health Check
+app.get('/', (req, res) => {
+  res.send('Lost and Found API is running correctly!');
+});
+
 // Routes
 app.use('/api', authRoutes);
 app.use('/api', itemRoutes);
